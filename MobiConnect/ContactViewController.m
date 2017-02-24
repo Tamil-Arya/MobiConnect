@@ -22,13 +22,16 @@
     [super viewDidLoad];
        
     self.locations = [NSMutableArray new];
-    NSString *url = [NSString stringWithFormat:@"details/GetAllUsersLocation?UserId=%@",[NetworkHandler sharedInstance].loginUserID];
+    NSString *url = [NSString stringWithFormat:@"details/GetAllUserDetails?UserId=%@",[NetworkHandler sharedInstance].loginUserID];
     [[NetworkHandler sharedInstance] getUserLocations:url withMethod:@"GET" completionHandler:^(NSArray *response, NSError *error) {
         if (response.count > 0) {
             for(NSDictionary *dict in response){
                 UserModel *user = [[UserModel alloc] initWithDictionary:dict];
                 [self.locations addObject:user];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tabelView reloadData];
+            });
         }
         else{
             NSLog(@"No users");
@@ -39,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section     {
     // Return the number of rows in the section.
-    return 10;
+    return self.locations.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -50,9 +53,14 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     }
     
-    UserModel *user = [self.locations objectAtIndex:indexPath.row];
-    cell.textLabel.text = user.FirstName;
-    cell.detailTextLabel.text=user.EmailId;
+    if (self.locations.count > 0) {
+        UserModel *user = [self.locations objectAtIndex:indexPath.row];
+        cell.textLabel.text = user.FirstName;
+        cell.detailTextLabel.text=user.EmailId;
+    }
+    else{
+        cell.textLabel.text = @"Loading…";
+    }
     
     return cell;
 }

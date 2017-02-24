@@ -9,7 +9,7 @@
 #import "BroadCastViewController.h"
 #import "SWRevealViewController.h"
 #import "TableViewCell.h"
-
+#import "NetworkHandler.h"
 
 @interface BroadCastViewController ()< UITextViewDelegate >
 - (IBAction)chooseContact_Btn:(id)sender;
@@ -35,19 +35,19 @@
 - (void)hideKeyBoard{
     [self.textView resignFirstResponder];
   }
+
 - (IBAction)shareMessage:(id)sender {
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"Success" message:@"Message has sent to all" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *OK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-     
-        
+    [[NetworkHandler sharedInstance] sendBroadcastWithDetails:@{@"UserId":[NetworkHandler sharedInstance].loginUserID,@"Message":self.textView.text} withURL:@"details/SendBroadcastMessage" withMethod:@"POST" completionHandler:^(NSDictionary *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"Success" message:@"Message has sent to all" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *OK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:OK];
+            [self presentViewController:alert animated:YES completion:nil];
+        });
     }];
-    
-  
-    [alert addAction:OK];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-    
 }
 - (void)customSetup
 {
