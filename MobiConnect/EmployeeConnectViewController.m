@@ -8,10 +8,12 @@
 
 #import "EmployeeConnectViewController.h"
 #import "SWRevealViewController.h"
-
+#import "userCellCollectionViewCell.h"
+#import "ProfileViewController.h"
 
 @interface EmployeeConnectViewController ()
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
+@property (nonatomic,weak) IBOutlet UICollectionView *collectionView;
 @end
 
 @implementation EmployeeConnectViewController
@@ -47,4 +49,26 @@
 }
 */
 
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 2;
+}
+
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"profileIdentifier";
+    
+    userCellCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.profileImage.image = [UIImage imageNamed:@"profile"];
+    
+    return cell;
+
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"userIdentifier" sender:self];
+    });
+    
+}
 @end

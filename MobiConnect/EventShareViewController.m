@@ -14,7 +14,8 @@
 @interface EventShareViewController ()
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 @property (weak, nonatomic) IBOutlet UITableView *tabelView;
-
+@property (strong, nonatomic) NSArray *events;
+@property (strong, nonatomic) NSArray *locations;
 @end
 
 @implementation EventShareViewController{
@@ -25,10 +26,12 @@
     [super viewDidLoad];
     [self customSetup];
     // Do any additional setup after loading the view.
+    self.events = [NSArray arrayWithObjects:@"Hackathon",@"Cricket league",@"Google Conference", nil];
+    self.locations = [NSArray arrayWithObjects:@"Mobinius, Banglore",@"HSR ground, Bangalore",@"Whitefield, BLR", nil];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section     {
     // Return the number of rows in the section.
-    return 10;
+    return self.events.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -39,8 +42,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     }
     
-    cell.textLabel.text =[NSString stringWithFormat:@"Event Name : %ld",(long)indexPath.row];
-    cell.detailTextLabel.text=@"Location : Bangalore";
+    cell.textLabel.text = [self.events objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text=[self.locations objectAtIndex:indexPath.row];
     
     return cell;
 }

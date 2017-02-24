@@ -16,13 +16,17 @@
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 @property (weak, nonatomic) IBOutlet UITextField *email_ID;
-@property (weak, nonatomic) IBOutlet UITextField *gender;
+@property (weak, nonatomic) IBOutlet UITextField *dept;
+@property (weak, nonatomic) IBOutlet UITextField *bio_id;
+@property (weak, nonatomic) IBOutlet UITextField *hobbies;
+@property (weak, nonatomic) IBOutlet UITextField *work;
+@property (weak, nonatomic) IBOutlet UITextField *bloodGroup;
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
 - (IBAction)dismiss:(id)sender;
 @end
 
 @implementation ProfileViewController
-@synthesize ph_Number,name,email_ID,gender,dismiss;
+@synthesize ph_Number,name,email_ID,dismiss;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customSetup];
@@ -35,7 +39,11 @@
                     email_ID.text=response[@"EmailId"];
                     name.text=response[@"FirstName"];
                     ph_Number.text=response[@"PhoneNumber"];
-                    gender.text=response[@"Gender"];
+                    _dept.text=response[@"Department"];
+                    _bio_id.text=response[@"Bio"];
+                    _hobbies.text=response[@"Hobbies"];
+                    _work.text=response[@"PreviousWorkExperience"];
+                    _bloodGroup.text = response[@"BloodGroup"];
                 }
             });
         }];

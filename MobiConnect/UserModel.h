@@ -16,6 +16,11 @@
 @property(nonatomic, strong)NSString *Latitude;
 @property(nonatomic, strong)NSString *Longitude;
 @property(nonatomic, strong)NSString *UserId;
+@property(nonatomic, strong)NSString *Bio;
+@property(nonatomic, strong)NSString *BloodGroup;
+@property(nonatomic, strong)NSString *Department;
+@property(nonatomic, strong)NSString *Hobbies;
+@property(nonatomic, strong)NSString *PreviousWorkExperience;
 @property(nonatomic, strong)UserLocationModel *locationModel;
 
 -(id)initWithDictionary:(NSDictionary *)dict;

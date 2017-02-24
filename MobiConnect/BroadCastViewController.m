@@ -13,8 +13,9 @@
 
 @interface BroadCastViewController ()< UITextViewDelegate >
 - (IBAction)chooseContact_Btn:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextField *textView;
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
+@property (nonatomic) IBOutlet UIActivityIndicatorView * progress;
 @end
 
 @implementation BroadCastViewController
@@ -23,10 +24,7 @@
 {
     [super viewDidLoad];
     [self customSetup];
-    self.textView.delegate=self;
-    self.textView.layer.borderWidth=2.0;
-    self.textView.layer.borderColor=[UIColor blueColor].CGColor;
-    
+    self.progress.hidden = YES;
     UITapGestureRecognizer *hideKeyBoard=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyBoard)];
     [self.view addGestureRecognizer:hideKeyBoard];
     
@@ -37,9 +35,10 @@
   }
 
 - (IBAction)shareMessage:(id)sender {
-    
+    self.progress.hidden = NO;
     [[NetworkHandler sharedInstance] sendBroadcastWithDetails:@{@"UserId":[NetworkHandler sharedInstance].loginUserID,@"Message":self.textView.text} withURL:@"details/SendBroadcastMessage" withMethod:@"POST" completionHandler:^(NSDictionary *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.progress.hidden = YES;
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"Success" message:@"Message has sent to all" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *OK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -66,30 +65,6 @@
 
 #pragma mark state preservation / restoration
 
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // Save what you need here
-    [coder encodeObject: _text forKey: @"text"];
-    [coder encodeObject: _color forKey: @"color"];
-
-    [super encodeRestorableStateWithCoder:coder];
-}
-
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // Restore what you need here
-    _color = [coder decodeObjectForKey: @"color"];
-    _text = [coder decodeObjectForKey: @"text"];
-    
-    [super decodeRestorableStateWithCoder:coder];
-}
-
-
 - (void)applicationFinishedRestoringState
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -103,28 +78,6 @@
     [self performSegueWithIdentifier:@"contact" sender:self];
 
 }
--(BOOL) textViewShouldBeginEditing:(UITextView *)textView
-{
-    if ([self.textView.text isEqualToString:@"Share message,..."]) {
-        self.textView.text = @"";
-        // self.totalTextCountLabel.text=@"";
-        self.textView.font=[UIFont systemFontOfSize:20];
-        self.textView.textColor = [UIColor blackColor];
-    }
-    
-    return YES;
-}
 
--(void) textViewDidChange:(UITextView *)textView
-{
-    
-    if(self.textView.text.length == 0){
-        self.textView.textColor = [UIColor blackColor];
-        self.textView.font=[UIFont systemFontOfSize:15];
-        self.textView.text = @"Share message,...";
-        [self.textView resignFirstResponder];
-        
-    }
-}
 
 @end

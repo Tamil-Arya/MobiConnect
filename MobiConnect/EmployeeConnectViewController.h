@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EmployeeConnectViewController : UIViewController
+@interface EmployeeConnectViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end

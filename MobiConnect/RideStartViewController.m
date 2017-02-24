@@ -146,4 +146,17 @@
     }];
 }
 
+
+-(IBAction)sos:(id)sender{
+    [[NetworkHandler sharedInstance] sendBroadcastWithDetails:@{@"UserId":[NetworkHandler sharedInstance].loginUserID,@"Message":[NSString stringWithFormat:@"%@ is in danger while riding.",@"Vishwavijet"]} withURL:@"details/SendBroadcastMessage" withMethod:@"POST" completionHandler:^(NSDictionary *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"Success" message:@"Message has sent to all" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *OK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:OK];
+            [self presentViewController:alert animated:YES completion:nil];
+        });
+    }];
+}
 @end
