@@ -16,8 +16,6 @@
 		7E0642B11E5FD1F6002C497F /* EventShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0642B01E5FD1F6002C497F /* EventShareTableViewCell.m */; };
 		7E0642B71E5FE2E0002C497F /* EmployeeRideShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0642B61E5FE2E0002C497F /* EmployeeRideShareViewController.m */; };
 		7E0642BF1E5FF79A002C497F /* RideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0642BE1E5FF79A002C497F /* RideStartViewController.m */; };
-		7E0642C51E5FFAAE002C497F /* UserLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0642C21E5FFAAE002C497F /* UserLocationModel.m */; };
-		7E0642C61E5FFAAE002C497F /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0642C41E5FFAAE002C497F /* UserModel.m */; };
 		7E0642C81E5FFD3C002C497F /* RideShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642C71E5FFD3B002C497F /* RideShare.png */; };
 		7E0642D01E6001AD002C497F /* Artboard 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642C91E6001AD002C497F /* Artboard 1.png */; };
 		7E0642D11E6001AD002C497F /* Artboard 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642CA1E6001AD002C497F /* Artboard 2.png */; };
@@ -26,6 +24,8 @@
 		7E0642D41E6001AD002C497F /* Artboard 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642CD1E6001AD002C497F /* Artboard 6.png */; };
 		7E0642D51E6001AD002C497F /* Artboard 7 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642CE1E6001AD002C497F /* Artboard 7 copy.png */; };
 		7E0642D61E6001AD002C497F /* Artboard 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0642CF1E6001AD002C497F /* Artboard 7.png */; };
+		7ED0CA521E6017CF00388EB4 /* UserLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED0CA4F1E6017CF00388EB4 /* UserLocationModel.m */; };
+		7ED0CA531E6017CF00388EB4 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED0CA511E6017CF00388EB4 /* UserModel.m */; };
 		97916A141E5F9F20003D6E3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97916A131E5F9F20003D6E3B /* main.m */; };
 		97916A171E5F9F20003D6E3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97916A161E5F9F20003D6E3B /* AppDelegate.m */; };
 		97916A1F1E5F9F20003D6E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97916A1E1E5F9F20003D6E3B /* Assets.xcassets */; };
@@ -62,10 +62,6 @@
 		7E0642BC1E5FF685002C497F /* MobiConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobiConnect.entitlements; sourceTree = "<group>"; };
 		7E0642BD1E5FF79A002C497F /* RideStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RideStartViewController.h; sourceTree = "<group>"; };
 		7E0642BE1E5FF79A002C497F /* RideStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RideStartViewController.m; sourceTree = "<group>"; };
-		7E0642C11E5FFAAE002C497F /* UserLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserLocationModel.h; path = ../../../Documents/C_usBetter/Models/UserLocationModel.h; sourceTree = "<group>"; };
-		7E0642C21E5FFAAE002C497F /* UserLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserLocationModel.m; path = ../../../Documents/C_usBetter/Models/UserLocationModel.m; sourceTree = "<group>"; };
-		7E0642C31E5FFAAE002C497F /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = ../../../Documents/C_usBetter/Models/UserModel.h; sourceTree = "<group>"; };
-		7E0642C41E5FFAAE002C497F /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = ../../../Documents/C_usBetter/Models/UserModel.m; sourceTree = "<group>"; };
 		7E0642C71E5FFD3B002C497F /* RideShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RideShare.png; sourceTree = "<group>"; };
 		7E0642C91E6001AD002C497F /* Artboard 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1.png"; sourceTree = "<group>"; };
 		7E0642CA1E6001AD002C497F /* Artboard 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 2.png"; sourceTree = "<group>"; };
@@ -74,6 +70,10 @@
 		7E0642CD1E6001AD002C497F /* Artboard 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 6.png"; sourceTree = "<group>"; };
 		7E0642CE1E6001AD002C497F /* Artboard 7 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 7 copy.png"; sourceTree = "<group>"; };
 		7E0642CF1E6001AD002C497F /* Artboard 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 7.png"; sourceTree = "<group>"; };
+		7ED0CA4E1E6017CF00388EB4 /* UserLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationModel.h; sourceTree = "<group>"; };
+		7ED0CA4F1E6017CF00388EB4 /* UserLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationModel.m; sourceTree = "<group>"; };
+		7ED0CA501E6017CF00388EB4 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		7ED0CA511E6017CF00388EB4 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		97916A0F1E5F9F20003D6E3B /* MobiConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobiConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97916A131E5F9F20003D6E3B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97916A151E5F9F20003D6E3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -211,10 +211,10 @@
 		7E0642C01E5FFA99002C497F /* Ride Models */ = {
 			isa = PBXGroup;
 			children = (
-				7E0642C11E5FFAAE002C497F /* UserLocationModel.h */,
-				7E0642C21E5FFAAE002C497F /* UserLocationModel.m */,
-				7E0642C31E5FFAAE002C497F /* UserModel.h */,
-				7E0642C41E5FFAAE002C497F /* UserModel.m */,
+				7ED0CA4E1E6017CF00388EB4 /* UserLocationModel.h */,
+				7ED0CA4F1E6017CF00388EB4 /* UserLocationModel.m */,
+				7ED0CA501E6017CF00388EB4 /* UserModel.h */,
+				7ED0CA511E6017CF00388EB4 /* UserModel.m */,
 			);
 			name = "Ride Models";
 			sourceTree = "<group>";
@@ -393,8 +393,8 @@
 				7E0642B11E5FD1F6002C497F /* EventShareTableViewCell.m in Sources */,
 				97916A581E5FAB3A003D6E3B /* ProfileViewController.m in Sources */,
 				7E0642A01E5FB20E002C497F /* NetworkHandler.m in Sources */,
-				7E0642C51E5FFAAE002C497F /* UserLocationModel.m in Sources */,
-				7E0642C61E5FFAAE002C497F /* UserModel.m in Sources */,
+				7ED0CA521E6017CF00388EB4 /* UserLocationModel.m in Sources */,
+				7ED0CA531E6017CF00388EB4 /* UserModel.m in Sources */,
 				7E0642AB1E5FC706002C497F /* TableViewCell.m in Sources */,
 				97916A141E5F9F20003D6E3B /* main.m in Sources */,
 			);
